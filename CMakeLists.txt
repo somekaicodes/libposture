@@ -9,6 +9,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 add_library(libposture
     src/geometry.cpp
     src/filter.cpp
+    src/rep_counter.cpp
 )
 target_include_directories(libposture PUBLIC include)
 
@@ -26,6 +27,7 @@ FetchContent_MakeAvailable(googletest)
 add_executable(libposture_tests
     tests/geometry_test.cpp
     tests/filter_test.cpp
+    tests/rep_counter_test.cpp
 )
 target_link_libraries(libposture_tests
     PRIVATE

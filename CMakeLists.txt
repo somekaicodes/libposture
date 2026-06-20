@@ -12,6 +12,7 @@ add_library(libposture
     src/rep_counter.cpp
     src/form.cpp
     src/squat_analyzer.cpp
+    src/posture_c.cpp
 )
 target_include_directories(libposture PUBLIC include)
 
@@ -32,6 +33,7 @@ add_executable(libposture_tests
     tests/rep_counter_test.cpp
     tests/form_test.cpp
     tests/squat_analyzer_test.cpp
+    tests/posture_c_test.cpp
 )
 target_link_libraries(libposture_tests
     PRIVATE

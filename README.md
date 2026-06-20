@@ -18,6 +18,7 @@ the desktop with [GoogleTest](https://github.com/google/googletest).
 | `rep_counter` | ✅ | Count squat reps via a state machine |
 | `form` | ✅ | Flag form errors (depth, torso, knees) |
 | `squat_analyzer` | ✅ | Runs the full per-frame pipeline end to end |
+| `posture_c` | ✅ | Flat `extern "C"` API for the iOS app to call in |
 
 ## Build & test
 

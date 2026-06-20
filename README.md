@@ -12,7 +12,7 @@ the desktop with [GoogleTest](https://github.com/google/googletest).
 | Module | Status | Purpose |
 |--------|--------|---------|
 | `geometry` | ✅ | 3D joint-angle math (e.g. knee angle) |
-| `filter` | planned | Smooth noisy joint/angle signals |
+| `filter` | ✅ | Smooth noisy joint/angle signals (One-Euro) |
 | `rep_counter` | planned | Count squat reps via a state machine |
 | `form` | planned | Flag form errors (depth, torso, knees) |
 

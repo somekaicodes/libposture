@@ -8,6 +8,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 # Add new .cpp files here as the library grows (filter, rep counter, ...).
 add_library(libposture
     src/geometry.cpp
+    src/filter.cpp
 )
 target_include_directories(libposture PUBLIC include)
 
@@ -24,6 +25,7 @@ FetchContent_MakeAvailable(googletest)
 
 add_executable(libposture_tests
     tests/geometry_test.cpp
+    tests/filter_test.cpp
 )
 target_link_libraries(libposture_tests
     PRIVATE

@@ -1,5 +1,7 @@
 # libposture
 
+[![CI](https://github.com/somekaicodes/libposture/actions/workflows/ci.yml/badge.svg)](https://github.com/somekaicodes/libposture/actions/workflows/ci.yml)
+
 A lightweight, dependency-free C++17 library for real-time squat analysis:
 joint-angle math, signal smoothing, and rep counting. Built to be bridged into
 **Posture AI**, an iOS app that uses ARKit body tracking to coach squat form.

@@ -13,7 +13,7 @@ namespace libposture {
 // forward of the knee and a standing leg reads ~140 rather than ~180.
 class RepCounter {
 public:
-    RepCounter(float downThreshold = 75.0f, float upThreshold = 130.0f);
+    RepCounter(float downThreshold = 80.0f, float upThreshold = 130.0f);
 
     // Feed one smoothed knee angle (degrees). Returns the running rep count.
     int update(float kneeAngle);

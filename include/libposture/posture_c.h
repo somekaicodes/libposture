@@ -16,11 +16,12 @@ typedef struct {
     float z;
 } PostureVec3;
 
-// One frame of joints needed to analyze a squat. `hip` is the pelvis centre.
+// One frame of joints needed to analyze a squat. Each leg has its own hip.
 typedef struct {
     double timestamp; // seconds
     PostureVec3 shoulder;
-    PostureVec3 hip;
+    PostureVec3 leftHip;
+    PostureVec3 rightHip;
     PostureVec3 leftKnee;
     PostureVec3 rightKnee;
     PostureVec3 leftAnkle;

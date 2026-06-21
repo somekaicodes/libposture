@@ -10,7 +10,8 @@ static PostureFrame standing(double t) {
     PostureFrame f = {};
     f.timestamp = t;
     f.shoulder = v(0.0f, 2.6f, 0.0f);
-    f.hip = v(0.0f, 2.0f, 0.0f);
+    f.leftHip = v(-0.2f, 2.0f, 0.0f);
+    f.rightHip = v(0.2f, 2.0f, 0.0f);
     f.leftKnee = v(-0.2f, 1.0f, 0.0f);
     f.rightKnee = v(0.2f, 1.0f, 0.0f);
     f.leftAnkle = v(-0.2f, 0.0f, 0.0f);
@@ -22,11 +23,12 @@ static PostureFrame bottom(double t) {
     PostureFrame f = {};
     f.timestamp = t;
     f.shoulder = v(0.0f, 1.6f, 0.0f);
-    f.hip = v(0.0f, 1.0f, 0.0f);
+    f.leftHip = v(-0.2f, 1.0f, 0.0f);
+    f.rightHip = v(0.2f, 1.0f, 0.0f);
     f.leftKnee = v(-0.2f, 0.0f, 0.0f);
     f.rightKnee = v(0.2f, 0.0f, 0.0f);
-    f.leftAnkle = v(-0.2f, 0.1f, 0.9f);
-    f.rightAnkle = v(0.2f, 0.1f, 0.9f);
+    f.leftAnkle = v(-0.2f, 0.3f, 0.5f);
+    f.rightAnkle = v(0.2f, 0.3f, 0.5f);
     return f;
 }
 

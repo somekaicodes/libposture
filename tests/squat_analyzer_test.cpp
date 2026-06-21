@@ -10,7 +10,8 @@ static SquatAnalyzer::Frame standingFrame(double t) {
     SquatAnalyzer::Frame f;
     f.timestamp = t;
     f.shoulder = Vec3{0.0f, 2.6f, 0.0f};
-    f.hip = Vec3{0.0f, 2.0f, 0.0f};
+    f.leftHip = Vec3{-0.2f, 2.0f, 0.0f};
+    f.rightHip = Vec3{0.2f, 2.0f, 0.0f};
     f.leftKnee = Vec3{-0.2f, 1.0f, 0.0f};
     f.rightKnee = Vec3{0.2f, 1.0f, 0.0f};
     f.leftAnkle = Vec3{-0.2f, 0.0f, 0.0f};
@@ -23,11 +24,12 @@ static SquatAnalyzer::Frame bottomFrame(double t) {
     SquatAnalyzer::Frame f;
     f.timestamp = t;
     f.shoulder = Vec3{0.0f, 1.6f, 0.0f};
-    f.hip = Vec3{0.0f, 1.0f, 0.0f};
+    f.leftHip = Vec3{-0.2f, 1.0f, 0.0f};
+    f.rightHip = Vec3{0.2f, 1.0f, 0.0f};
     f.leftKnee = Vec3{-0.2f, 0.0f, 0.0f};
     f.rightKnee = Vec3{0.2f, 0.0f, 0.0f};
-    f.leftAnkle = Vec3{-0.2f, 0.1f, 0.9f};
-    f.rightAnkle = Vec3{0.2f, 0.1f, 0.9f};
+    f.leftAnkle = Vec3{-0.2f, 0.3f, 0.5f};
+    f.rightAnkle = Vec3{0.2f, 0.3f, 0.5f};
     return f;
 }
 

@@ -12,11 +12,13 @@ namespace libposture {
 // -> form check. Feed it one body-tracking frame at a time.
 class SquatAnalyzer {
 public:
-    // One frame of 3D joints (from ARKit). `hip` is the pelvis centre.
+    // One frame of 3D joints (from ARKit). Each leg uses its own hip socket
+    // so the knee angle isn't skewed by the pelvis-centre offset.
     struct Frame {
         double timestamp = 0.0; // seconds
         Vec3 shoulder;
-        Vec3 hip;
+        Vec3 leftHip;
+        Vec3 rightHip;
         Vec3 leftKnee;
         Vec3 rightKnee;
         Vec3 leftAnkle;

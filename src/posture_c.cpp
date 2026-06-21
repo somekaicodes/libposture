@@ -37,7 +37,8 @@ PostureResult posture_session_update(PostureSession* session, PostureFrame frame
     SquatAnalyzer::Frame in;
     in.timestamp = frame.timestamp;
     in.shoulder = toVec3(frame.shoulder);
-    in.hip = toVec3(frame.hip);
+    in.leftHip = toVec3(frame.leftHip);
+    in.rightHip = toVec3(frame.rightHip);
     in.leftKnee = toVec3(frame.leftKnee);
     in.rightKnee = toVec3(frame.rightKnee);
     in.leftAnkle = toVec3(frame.leftAnkle);

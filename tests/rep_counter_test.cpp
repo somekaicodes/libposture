@@ -20,31 +20,31 @@ TEST(RepCounterTest, StartsAtZero) {
     EXPECT_EQ(counter.count(), 0);
 }
 
-// Stand, drop into a squat, stand back up: that's one rep.
+// Stand (~140), drop into a deep squat (~70), stand back up: that's one rep.
 TEST(RepCounterTest, FullSquatCountsOne) {
     RepCounter counter;
-    EXPECT_EQ(countReps(counter, {170.0f, 90.0f, 170.0f}), 1);
+    EXPECT_EQ(countReps(counter, {140.0f, 70.0f, 140.0f}), 1);
 }
 
 // A shallow dip that never passes the down threshold doesn't count.
 TEST(RepCounterTest, ShallowDipDoesNotCount) {
     RepCounter counter;
-    EXPECT_EQ(countReps(counter, {170.0f, 120.0f, 170.0f}), 0);
+    EXPECT_EQ(countReps(counter, {140.0f, 115.0f, 140.0f}), 0);
 }
 
 // Going down but not standing fully back up doesn't complete the rep.
 TEST(RepCounterTest, IncompleteRiseDoesNotCount) {
     RepCounter counter;
-    EXPECT_EQ(countReps(counter, {170.0f, 90.0f, 140.0f}), 0);
+    EXPECT_EQ(countReps(counter, {140.0f, 70.0f, 120.0f}), 0);
 }
 
 // Three clean reps in a row count as three.
 TEST(RepCounterTest, CountsMultipleReps) {
     RepCounter counter;
     std::vector<float> angles = {
-        170.0f, 90.0f, 170.0f,  // rep 1
-        85.0f,  175.0f,         // rep 2
-        95.0f,  165.0f,         // rep 3
+        140.0f, 70.0f, 140.0f,  // rep 1
+        65.0f,  145.0f,         // rep 2
+        72.0f,  135.0f,         // rep 3
     };
     EXPECT_EQ(countReps(counter, angles), 3);
 }
@@ -53,16 +53,16 @@ TEST(RepCounterTest, CountsMultipleReps) {
 TEST(RepCounterTest, JitterBetweenThresholdsDoesNotDoubleCount) {
     RepCounter counter;
     std::vector<float> angles = {
-        170.0f, 90.0f,                  // into the squat
-        110.0f, 130.0f, 120.0f, 140.0f, // wobble, still below up threshold
-        170.0f,                         // finally stand: exactly one rep
+        140.0f, 70.0f,                  // into the squat
+        105.0f, 125.0f, 115.0f, 128.0f, // wobble, still below the up threshold
+        140.0f,                         // finally stand: exactly one rep
     };
     EXPECT_EQ(countReps(counter, angles), 1);
 }
 
 TEST(RepCounterTest, ResetClearsCount) {
     RepCounter counter;
-    countReps(counter, {170.0f, 90.0f, 170.0f});
+    countReps(counter, {140.0f, 70.0f, 140.0f});
     counter.reset();
     EXPECT_EQ(counter.count(), 0);
 }

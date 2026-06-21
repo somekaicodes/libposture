@@ -4,8 +4,8 @@ namespace libposture {
 
 SquatAnalyzer::Result SquatAnalyzer::update(const Frame& frame) {
     // Knee angle from each leg, averaged for stability.
-    float leftAngle = jointAngleDegrees(frame.hip, frame.leftKnee, frame.leftAnkle);
-    float rightAngle = jointAngleDegrees(frame.hip, frame.rightKnee, frame.rightAnkle);
+    float leftAngle = jointAngleDegrees(frame.leftHip, frame.leftKnee, frame.leftAnkle);
+    float rightAngle = jointAngleDegrees(frame.rightHip, frame.rightKnee, frame.rightAnkle);
     float rawAngle = (leftAngle + rightAngle) * 0.5f;
 
     float smoothed = angleFilter_.filter(rawAngle, static_cast<float>(frame.timestamp));
@@ -29,7 +29,12 @@ SquatAnalyzer::Result SquatAnalyzer::update(const Frame& frame) {
         SquatFrame squat;
         squat.minKneeAngle = minKneeAngle_;
         squat.shoulder = bottomFrame_.shoulder;
-        squat.hip = bottomFrame_.hip;
+        // Torso lean uses the pelvis centre: the midpoint of the two hips.
+        squat.hip = Vec3{
+            (bottomFrame_.leftHip.x + bottomFrame_.rightHip.x) * 0.5f,
+            (bottomFrame_.leftHip.y + bottomFrame_.rightHip.y) * 0.5f,
+            (bottomFrame_.leftHip.z + bottomFrame_.rightHip.z) * 0.5f
+        };
         squat.leftKnee = bottomFrame_.leftKnee;
         squat.rightKnee = bottomFrame_.rightKnee;
         squat.leftAnkle = bottomFrame_.leftAnkle;
